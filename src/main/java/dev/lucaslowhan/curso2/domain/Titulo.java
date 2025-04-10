@@ -1,12 +1,19 @@
 package dev.lucaslowhan.curso2.domain;
 
-public class Titulo {
+import java.util.Objects;
+
+public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
     private int totalAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
 
     public void exibirFichaTecnica(){
         System.out.println("Nome do filme: " + this.nome);
@@ -58,4 +65,9 @@ public class Titulo {
         return totalAvaliacoes;
     }
 
+    @Override
+    public int compareTo(Titulo o) {
+        return this.getNome().compareTo(o.getNome());
+    }
 }
+
